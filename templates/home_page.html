@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/stylesheets/home_page.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- The welcome struct (shown in the main.go code) is received within the HTML and we just need to use the . operator and retrieve the information we want -->
+    <title>Jokes !!!</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Nosifer);
+
+        body {
+            border-top: double;
+            border-color: white;
+        }
+
+        .container-fluid {
+            border-top: double;
+            border-color: maroon;
+        }
+
+        h1 {
+            border-top: double;
+            text-align: center;
+            border-bottom: double;
+            margin-top: 40px;
+            font-family: '';
+            color: maroon;
+            font-size: 50px;
+            text-shadow: 4px 4px 2px rgba(150, 150, 150, 0.5);
+        }
+
+        #the-quote span {
+            padding: 5px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+        }
+
+        .fa-quote-left {
+            font-size: 30px;
+            margin-right: 10px;
+            color: black;
+        }
+
+        .fa-quote-right {
+            font-size: 30px;
+            margin-left: 10px;
+        }
+
+        p {
+            font-size: 13px;
+            margin-top: 30px;
+            color: rgb(220, 20, 60);
+        }
+
+        p a {
+            color: maroon;
+        }
+
+        #the-quote {
+            margin-bottom: 20px;
+        }
+
+        #quote-block {
+            background: rgba(255, 255, 255, 0.75);
+            width: 50%;
+            margin-left: 25%;
+            color: rgb(168, 78, 221);
+            padding: 20px;
+            margin-top: 50px;
+            -webkit-box-shadow: 0px 0px 10px 0px rgba(97, 210, 214, 1);
+            -moz-box-shadow: 0px 0px 10px 0px rgba(97, 210, 214, 1);
+            box-shadow: 0px 0px 10px 0px rgb(128, 0, 0);
+            border: 1px solid #9BF0E9;
+        }
+
+        .font-40 {
+            font-size: 150px;
+        }
+
+        .social-stuff i {
+            color: maroon;
+            font-size: 40px;
+            margin-right: 10px;
+        }
+
+        .social-stuff i:hover {
+            color: #ccc;
+        }
+
+        footer {
+            background: rgba(29, 29, 29, .4);
+            margin-top: 90px;
+            float: left;
+            margin-bottom: 30px;
+            width: 150px;
+            height: 90px;
+            text-align: center;
+            margin-left: 20px;
+            color: maroon;
+            border-radius: 20%;
+            box-shadow: 0px 0px 10px 0px rgb(128, 0, 0);
+        }
+
+    </style>
+</head>
+
+<script>
+    function newJoke() {
+        //location.href = "http://localhost:8080/newJoke";
+        $.ajax({
+            url: "http://localhost:5000/",
+            data: {} //If the request needs any data
+        }).done(function (data) {
+            console.log(data)
+            $('#joke').html(data);
+        });
+    }
+</script>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class=" col-md-10">
+            <h1 class="text-center">Jokes !!!</h1>
+            <div id="quote-block">
+                <div id="the-quote"><i class="fa fa-quote-left" aria-hidden="true"></i><span id='joke'></span></div>
+                <div class="button-container text-center">
+                    <button type="button" class="btn btn-primary" id='new-joke' action="http://localhost:8080/newJoke"
+                            onclick="newJoke()">New Joke
+                    </button>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+</body>
+</html>
