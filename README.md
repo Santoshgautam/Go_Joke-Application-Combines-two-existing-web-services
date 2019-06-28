@@ -6,10 +6,10 @@
 3. goto jokeapp
 
 4. build
-go build main.go
+"go build main.go"
 
 5. run
-go run main.go
+"go run main.go"
 
 6. usage
 curl http://localhost:5000
