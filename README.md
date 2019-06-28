@@ -1,19 +1,18 @@
 # Joke Application - Combines two existing web services
 
-go get github.com/gorilla/handlers
-set gopath accordingly
+1. go get github.com/gorilla/handlers
+2. set gopath accordingly
 
-goto jokeapp
+3. goto jokeapp
 
-build
+4. build
 go build main.go
 
-run
+5. run
 go run main.go
 
-usage
+6. usage
 curl http://localhost:5000
 
-ui - Simple webpage to serve the jokes
-http://localhost:5000/ui
+7. ui - Simple webpage to serve the jokes http://localhost:5000/ui
 
